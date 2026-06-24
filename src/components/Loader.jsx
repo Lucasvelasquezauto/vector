@@ -1,0 +1,121 @@
+import { motion, AnimatePresence } from 'framer-motion'
+import './Loader.css'
+
+const W = '#F0EBE1'
+const G = '#C9952A'
+const ease = [0.16, 1, 0.3, 1]
+
+export default function Loader({ done }) {
+  // CSS px offsets to compress V and hexagon toward center (logo symbol state)
+  // V shifts 116.5 SVG units right, hexagon shifts 44.8 SVG units left
+  const logoW = typeof window !== 'undefined' ? Math.min(380, window.innerWidth - 80) : 380
+  const vX   = Math.round(116.5 * logoW / 404)
+  const hexX = -Math.round(44.8 * logoW / 404)
+  const rX   = -Math.round(20 * logoW / 404)
+
+  return (
+    <AnimatePresence>
+      {!done && (
+        <motion.div
+          className="loader"
+          initial={{ opacity: 1 }}
+          exit={{ opacity: 0, transition: { duration: 0.7, ease } }}
+        >
+          <div className="loader-noise" aria-hidden="true" />
+
+          <div className="loader-logo-wrap">
+            <svg
+              viewBox="0 0 404.01 128.23"
+              className="loader-logo"
+              aria-label="VECTOR Estrategia"
+              xmlns="http://www.w3.org/2000/svg"
+              overflow="visible"
+            >
+              {/* V — starts compressed rightward, flies left to natural position */}
+              <motion.g
+                initial={{ x: vX }}
+                animate={{ x: 0 }}
+                transition={{ delay: 0.3, duration: 1.0, ease }}
+              >
+                <polygon points="15.38 31.01 35.03 31.01 67.41 91.46 47.76 91.46 15.38 31.01" fill={W}/>
+                <line x1="63.71" y1="89.46" x2="86.17" y2="24.83" stroke={W} strokeWidth="9" fill="none"/>
+                <path d="M91.85,12.59l-2.31,31.84-3.93-18.08-17.61,11.51,23.85-25.27Z" fill={G}/>
+              </motion.g>
+
+              {/* E — rises from below as the gap opens */}
+              <motion.g
+                initial={{ opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.9, duration: 0.55, ease }}
+              >
+                <path d="M99.05,89.46v-53.2h40.2v9.88h-27.97v33.44h28.96v9.88h-41.19ZM110.38,67.27v-9.65h25.61v9.65h-25.61Z" fill={W}/>
+              </motion.g>
+
+              {/* C */}
+              <motion.g
+                initial={{ opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 1.02, duration: 0.55, ease }}
+              >
+                <path d="M180.51,90.37c-4.1,0-7.92-.67-11.44-2.01-3.52-1.34-6.57-3.26-9.16-5.74s-4.6-5.4-6.04-8.74c-1.44-3.34-2.17-7.02-2.17-11.02s.72-7.68,2.17-11.02c1.44-3.34,3.47-6.26,6.08-8.74,2.61-2.48,5.67-4.39,9.2-5.74,3.52-1.34,7.33-2.01,11.44-2.01,4.61,0,8.79.8,12.54,2.39,3.75,1.6,6.89,3.94,9.42,7.03l-7.98,7.3c-1.77-2.08-3.79-3.65-6.04-4.71-2.26-1.06-4.7-1.6-7.33-1.6-2.48,0-4.76.42-6.84,1.25-2.08.84-3.88,2.01-5.4,3.53-1.52,1.52-2.7,3.32-3.53,5.4-.84,2.08-1.25,4.38-1.25,6.92s.42,4.84,1.25,6.92c.84,2.08,2.01,3.88,3.53,5.4,1.52,1.52,3.32,2.7,5.4,3.53,2.08.84,4.36,1.25,6.84,1.25,2.63,0,5.08-.54,7.33-1.63,2.25-1.09,4.27-2.67,6.04-4.75l7.98,7.3c-2.54,3.09-5.68,5.45-9.42,7.07-3.75,1.62-7.96,2.43-12.62,2.43Z" fill={W}/>
+              </motion.g>
+
+              {/* T */}
+              <motion.g
+                initial={{ opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 1.14, duration: 0.55, ease }}
+              >
+                <path d="M227.07,89.46v-43.17h-17.02v-10.03h46.36v10.03h-17.02v43.17h-12.31Z" fill={W}/>
+              </motion.g>
+
+              {/* O hexagon — starts compressed leftward, flies right to natural position */}
+              <motion.g
+                initial={{ x: hexX }}
+                animate={{ x: 0 }}
+                transition={{ delay: 0.3, duration: 1.0, ease }}
+              >
+                <polygon points="289.06 30.93 316.95 47.06 316.95 79.33 289.06 95.46 261.18 79.33 261.18 47.06 289.06 30.93" stroke={G} strokeWidth="5" strokeLinejoin="round" fill="none"/>
+                <polygon points="289.06 44.76 305.08 53.98 305.08 72.41 289.06 81.63 273.04 72.41 273.04 53.98 289.06 44.76" stroke="rgba(240,235,225,0.38)" strokeWidth="4.5" strokeLinejoin="round" fill="none"/>
+              </motion.g>
+
+              {/* R — emerges from behind the hexagon */}
+              <motion.g
+                initial={{ opacity: 0, x: rX }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 1.28, duration: 0.6, ease }}
+              >
+                <path d="M326.05,89.46v-53.2h22.72c7.4,0,13.15,1.71,17.25,5.13s6.16,8.12,6.16,14.1c0,4-.94,7.44-2.81,10.3-1.88,2.86-4.54,5.04-7.98,6.54-3.45,1.5-7.55,2.24-12.31,2.24h-16.26l5.62-5.32v20.22h-12.39ZM338.44,70.61l-5.62-5.85h15.58c3.75,0,6.59-.81,8.51-2.43,1.92-1.62,2.89-3.9,2.89-6.84s-.96-5.21-2.89-6.8c-1.93-1.6-4.76-2.39-8.51-2.39h-15.58l5.62-5.85v30.17ZM359.95,89.46l-13.38-19.3h13.22l13.38,19.3h-13.22Z" fill={W}/>
+              </motion.g>
+
+              {/* Estrategia subtitle */}
+              <motion.g
+                initial={{ opacity: 0, y: 6 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 1.72, duration: 0.65, ease: 'easeOut' }}
+              >
+                <text
+                  x="137" y="113"
+                  fontFamily="'Space Grotesk', system-ui, sans-serif"
+                  fontSize="13"
+                  fill="#6a6764"
+                  letterSpacing="3"
+                >
+                  Estrategia
+                </text>
+              </motion.g>
+            </svg>
+          </div>
+
+          <motion.div
+            className="loader-bar"
+            initial={{ scaleX: 0 }}
+            animate={{ scaleX: 1 }}
+            transition={{ duration: 0.7, delay: 0.1, ease }}
+            style={{ transformOrigin: 'left center' }}
+          />
+        </motion.div>
+      )}
+    </AnimatePresence>
+  )
+}

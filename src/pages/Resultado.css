@@ -1,0 +1,160 @@
+.resultado {
+  min-height: 100vh;
+  background: var(--bg);
+}
+
+.res-stage {
+  max-width: clamp(980px, 76vw, 1320px);
+  margin: 0 auto;
+  padding: 1rem 2.5rem 6rem;
+}
+
+.res-label::before { width: 18px; }
+.res-meta {
+  font-size: 0.95rem;
+  color: var(--text-mid);
+}
+
+.res-intro { margin-bottom: 2.5rem; }
+
+/* ── Grid: score panel + radar ─────────────────────────────────── */
+.res-grid {
+  display: grid;
+  grid-template-columns: clamp(300px, 22vw, 380px) 1fr;
+  gap: clamp(2.5rem, 3vw, 3.5rem);
+  align-items: start;
+  margin-bottom: 3rem;
+}
+
+.res-score {
+  background: var(--card);
+  border: 1px solid var(--border-mid);
+  border-radius: 2px;
+  padding: clamp(2.25rem, 2.4vw, 2.75rem) clamp(2rem, 2.2vw, 2.5rem);
+}
+
+.res-score-label {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-mid);
+  margin-bottom: 0.75rem;
+}
+
+.res-score-value {
+  font-family: var(--font-serif);
+  font-size: clamp(4.5rem, 5.2vw, 6.5rem);
+  font-weight: 400;
+  line-height: 1;
+}
+
+.res-score-max {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--text-mid);
+  margin-bottom: 1.1rem;
+}
+
+.res-range-badge {
+  display: inline-block;
+  background: var(--bg);
+  border: 1px solid;
+  border-radius: 2px;
+  padding: 0.4rem 0.75rem;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin-bottom: 1.75rem;
+}
+
+.res-dims {
+  border-top: 1px solid var(--border);
+  padding-top: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.res-dim-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  font-size: clamp(0.82rem, 0.9vw, 0.92rem);
+  color: var(--text-mid);
+}
+
+.res-dim-letter {
+  font-family: var(--font-mono);
+  color: var(--accent-gold);
+  font-weight: 700;
+}
+
+.res-dim-score {
+  font-family: var(--font-mono);
+  color: var(--text);
+  flex-shrink: 0;
+}
+
+/* ── Radar ──────────────────────────────────────────────────────── */
+.res-radar-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.res-radar-legend {
+  display: flex;
+  gap: 1.75rem;
+  margin-top: 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--text-mid);
+}
+.res-radar-legend span { display: flex; align-items: center; gap: 0.5rem; }
+.dot { width: 7px; height: 7px; border-radius: 50%; background: var(--accent-teal); display: inline-block; }
+.dash { width: 16px; height: 0; border-top: 1.5px dashed var(--accent-gold); display: inline-block; }
+
+/* ── Profile reading ────────────────────────────────────────────── */
+.res-reading {
+  background: var(--surface);
+  border-left: 2px solid;
+  padding: 1.5rem 1.75rem;
+  margin-bottom: 3rem;
+}
+
+.res-reading-text {
+  font-size: clamp(1rem, 1.1vw, 1.2rem);
+  line-height: 1.75;
+  color: var(--text);
+  max-width: 70ch;
+}
+
+/* ── CTA ────────────────────────────────────────────────────────── */
+.res-cta { text-align: center; }
+
+.res-cta-text {
+  font-family: var(--font-serif);
+  font-size: clamp(1.5rem, 1.8vw, 2.1rem);
+  color: var(--text);
+  margin-bottom: 1.5rem;
+}
+
+.res-back-link {
+  display: block;
+  margin-top: 1.25rem;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-mid);
+  transition: color 0.25s var(--ease-out);
+}
+.res-back-link:hover { color: var(--accent-teal); }
+
+@media (max-width: 768px) {
+  .res-stage { padding: 0.5rem 1.5rem 4rem; }
+  .res-grid { grid-template-columns: 1fr; gap: 2rem; }
+  .res-score-value { font-size: 3.5rem; }
+}

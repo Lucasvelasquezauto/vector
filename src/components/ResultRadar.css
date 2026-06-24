@@ -1,0 +1,6 @@
+.result-radar {
+  width: 100%;
+  max-width: clamp(420px, 32vw, 600px);
+  height: auto;
+  display: block;
+}

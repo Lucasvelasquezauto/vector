@@ -1,0 +1,175 @@
+.hero {
+  position: relative;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 2.5rem 5rem;
+  overflow: hidden;
+}
+
+.hero-noise {
+  position: absolute; inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+  background-size: 200px; mix-blend-mode: overlay; opacity: 0.5; pointer-events: none;
+}
+
+.hero-geo {
+  position: absolute;
+  top: 50%; right: 4%;
+  width: min(820px, 64vw);
+  height: min(820px, 64vw);
+  pointer-events: none;
+  will-change: transform;
+}
+
+.hero-content {
+  position: relative; z-index: 1;
+}
+
+.hero-label {
+  font-family: var(--font-mono);
+  font-size: 1.225rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--accent-teal);
+  margin-bottom: 1.8rem;
+}
+
+.hero-title {
+  font-family: var(--font-serif);
+  font-size: clamp(2.38rem, 5.79vw, 6rem);
+  font-weight: 400;
+  line-height: 1.0;
+  letter-spacing: -0.02em;
+  color: var(--text);
+  max-width: 67rem;
+}
+
+.hero-line {
+  display: block;
+  overflow: hidden;
+  padding-bottom: 0.18em;
+  margin-bottom: -0.12em;
+}
+
+.word-wrap {
+  display: inline-block;
+  overflow: hidden;
+  margin-right: 0.22em;
+  vertical-align: top;
+  padding-bottom: 0.18em;
+  margin-bottom: -0.18em;
+}
+
+.word {
+  display: inline-block;
+}
+
+.word--italic {
+  font-style: italic;
+  color: var(--accent-gold);
+}
+
+.hero-bottom {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-top: 3.575rem;
+  gap: 2rem;
+}
+
+.hero-desc {
+  max-width: 47ch;
+  font-size: clamp(1.29rem, calc(0.92rem + 1.53vw), 2.3rem);
+  line-height: 1.4;
+  color: var(--text-mid);
+  font-weight: 300;
+}
+
+.hero-actions {
+  display: flex; gap: 1rem; align-items: center;
+  flex-shrink: 0;
+}
+
+.hero-actions .btn-primary {
+  font-size: 1.125rem;
+  padding: 1.25rem 2.75rem;
+}
+
+/* Shared buttons */
+.btn-primary {
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--bg);
+  background: var(--text);
+  padding: 0.9rem 2rem;
+  border-radius: 2px;
+  display: inline-flex; align-items: center; gap: 0.6rem;
+  transition: background 0.25s, transform 0.25s var(--ease-spring), box-shadow 0.25s;
+  cursor: none;
+}
+.btn-primary:hover {
+  background: var(--accent-teal);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(0,229,196,0.22);
+}
+.btn-primary svg { transition: transform 0.25s; }
+.btn-primary:hover svg { transform: translateX(3px); }
+
+.btn-ghost {
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--text-mid);
+  padding: 0.9rem 2rem;
+  border: 1px solid var(--border-mid);
+  border-radius: 2px;
+  transition: color 0.25s, border-color 0.25s, transform 0.2s;
+  cursor: none;
+}
+.btn-ghost:hover { color: var(--text); border-color: rgba(255,255,255,0.22); transform: translateY(-2px); }
+
+.hero-scroll {
+  position: absolute;
+  bottom: 2rem; left: 50%;
+  transform: translateX(-50%);
+  display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
+}
+
+.scroll-line {
+  width: 1px; height: 48px;
+  background: rgba(255,255,255,0.08);
+  overflow: hidden; position: relative;
+}
+.scroll-drop {
+  position: absolute; top: -100%; left: 0;
+  width: 100%; height: 100%;
+  background: var(--accent-teal);
+  animation: scrollDrop 1.8s ease-in-out 2.8s infinite;
+}
+@keyframes scrollDrop { from{top:-100%} to{top:200%} }
+
+.hero-scroll span {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  writing-mode: vertical-rl;
+}
+
+@media (max-width: 768px) {
+  .hero { padding: 6rem 1.5rem 4rem; }
+  .hero-label { font-size: 0.875rem; margin-bottom: 1.5rem; }
+  .hero-bottom { margin-top: 2.75rem; }
+  .hero-geo { width: 260px; height: 260px; opacity: 0.25; top: 25%; }
+  .hero-bottom { flex-direction: column; align-items: flex-start; }
+  .hero-actions { flex-direction: column; width: 100%; }
+  .btn-primary, .btn-ghost { width: 100%; justify-content: center; }
+}

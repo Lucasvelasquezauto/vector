@@ -1,0 +1,73 @@
+.contact {
+  padding: 10rem 2.5rem;
+  background: var(--bg);
+  position: relative; overflow: hidden;
+}
+
+.contact-glow {
+  position: absolute; top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80vw; height: 80vh;
+  background: radial-gradient(ellipse, rgba(0,229,196,0.055) 0%, transparent 65%);
+  pointer-events: none;
+}
+
+.contact-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+  position: relative; z-index: 1;
+}
+
+.contact-title {
+  font-family: var(--font-serif);
+  font-size: clamp(3rem, 7vw, 8rem);
+  font-weight: 400;
+  line-height: 1.0;
+  letter-spacing: -0.03em;
+  color: var(--text);
+  margin: 1.5rem 0;
+}
+
+.contact-tagline {
+  font-family: var(--font-serif);
+  font-size: clamp(1rem, 1.8vw, 1.3rem);
+  font-style: italic;
+  color: var(--text-mid);
+  opacity: 0.65;
+  margin-bottom: 1.8rem;
+  letter-spacing: 0.01em;
+}
+
+.contact-sub {
+  font-size: 1.05rem; line-height: 1.72;
+  color: var(--text-mid);
+  max-width: 42ch;
+  margin: 0 auto 3rem;
+}
+
+.contact-email {
+  margin-top: 2rem;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  opacity: 0.35;
+}
+.contact-email a {
+  color: var(--text-mid);
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+.contact-email a:hover { opacity: 0.7; }
+
+.contact-actions {
+  display: flex;
+  justify-content: center; align-items: center;
+  gap: 1rem; flex-wrap: wrap;
+}
+
+@media (max-width: 768px) {
+  .contact { padding: 5rem 1.5rem; }
+  .contact-actions { flex-direction: column; }
+  .btn-primary, .btn-ghost { width: 100%; justify-content: center; }
+}

@@ -1,0 +1,169 @@
+.diagnostico {
+  min-height: 100vh;
+  background: var(--bg);
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Step progress (7 steps: 1 intro + 6 dimensions) ───────────── */
+.diag-progress {
+  height: 3px;
+  background: var(--border);
+}
+.diag-progress-fill {
+  height: 100%;
+  background: var(--accent-teal);
+}
+
+/* ── Stage ──────────────────────────────────────────────────────── */
+.diag-stage {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 2.5rem 4rem;
+}
+
+.diag-card {
+  width: 100%;
+  max-width: clamp(620px, 54vw, 860px);
+  background: var(--card);
+  border: 1px solid var(--border-mid);
+  border-radius: 2px;
+  padding: clamp(3.25rem, 3.6vw, 4.25rem) clamp(3rem, 3.4vw, 4rem);
+}
+
+.diag-label { margin-bottom: 1.25rem; }
+.diag-label::before { width: 18px; }
+
+.diag-title {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: 400;
+  line-height: 1.08;
+  letter-spacing: -0.01em;
+  color: var(--text);
+  margin-bottom: 0.9rem;
+}
+
+.diag-sub {
+  font-size: clamp(0.95rem, 1.1vw, 1.15rem);
+  line-height: 1.65;
+  color: var(--text-mid);
+  margin-bottom: 2.25rem;
+  max-width: 42ch;
+}
+
+/* ── Form fields ────────────────────────────────────────────────── */
+.field { margin-bottom: 1.4rem; }
+
+.field-label {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--text-mid);
+  margin-bottom: 0.6rem;
+}
+
+.field-input {
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--border-mid);
+  border-radius: 2px;
+  padding: clamp(0.9rem, 1vw, 1.1rem) clamp(1rem, 1.1vw, 1.2rem);
+  font-family: var(--font-sans);
+  font-size: clamp(0.95rem, 1.05vw, 1.05rem);
+  color: var(--text);
+  outline: none;
+  cursor: text;
+  transition: border-color 0.2s var(--ease-out);
+}
+.field-input::placeholder { color: var(--text-mid); }
+.field-input:focus { border-color: var(--accent-teal); }
+
+.diag-cta { margin-top: 1.6rem; }
+
+/* ── Dimension step ─────────────────────────────────────────────── */
+.diag-dim-title {
+  font-family: var(--font-serif);
+  font-size: clamp(1.5rem, 2.6vw, 2.4rem);
+  font-weight: 400;
+  color: var(--text);
+  margin-bottom: 2.25rem;
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+}
+
+.diag-dim-letter {
+  font-family: var(--font-mono);
+  font-size: clamp(1.1rem, 1.3vw, 1.35rem);
+  color: var(--accent-gold);
+}
+
+.diag-question { margin-bottom: 2.25rem; }
+
+.diag-question-text {
+  font-size: clamp(1rem, 1.15vw, 1.2rem);
+  line-height: 1.65;
+  color: var(--text);
+  margin-bottom: 1.25rem;
+}
+
+.score-row {
+  display: flex;
+  gap: 0.6rem;
+  margin-bottom: 0.6rem;
+}
+
+.score-btn {
+  flex: 1;
+  height: clamp(42px, 3.2vw, 54px);
+  border: 1px solid var(--border-mid);
+  border-radius: 2px;
+  background: transparent;
+  color: var(--text-mid);
+  font-family: var(--font-mono);
+  font-size: clamp(0.9rem, 1vw, 1.05rem);
+  transition: border-color 0.2s var(--ease-out), color 0.2s var(--ease-out), background 0.2s var(--ease-out);
+}
+.score-btn:hover { border-color: var(--accent-teal); color: var(--text); }
+.score-btn.is-selected {
+  background: var(--accent-teal);
+  border-color: var(--accent-teal);
+  color: var(--bg);
+}
+
+.score-labels {
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--font-mono);
+  font-size: clamp(0.65rem, 0.75vw, 0.78rem);
+  letter-spacing: 0.02em;
+  color: var(--text-mid);
+}
+
+.diag-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 2.5rem;
+}
+
+.diag-nav .btn-primary:disabled,
+.diag-cta:disabled {
+  opacity: 0.32;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+@media (max-width: 768px) {
+  .diag-stage { padding: 1.5rem 1.25rem 3rem; }
+  .diag-card { padding: 2.25rem 1.5rem; }
+  .score-row { gap: 0.4rem; }
+  .score-btn { height: 40px; font-size: 0.85rem; }
+  .score-labels span:first-child { max-width: 40%; }
+  .score-labels span:last-child { max-width: 40%; text-align: right; }
+}

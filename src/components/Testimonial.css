@@ -1,0 +1,145 @@
+.closing {
+  padding: 8rem 2.5rem;
+  background: var(--card);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  position: relative; overflow: hidden;
+}
+
+.testimonial-bg-quote {
+  position: absolute;
+  top: -0.3em; left: 1.2rem;
+  font-family: var(--font-serif);
+  font-size: clamp(10rem, 20vw, 28rem);
+  line-height: 1;
+  color: var(--text-faint);
+  pointer-events: none; user-select: none;
+}
+
+.contact-glow {
+  position: absolute; top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 70vw; height: 80vh;
+  background: radial-gradient(ellipse, rgba(0,229,196,0.05) 0%, transparent 65%);
+  pointer-events: none;
+}
+
+.closing-inner {
+  max-width: 1700px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6rem;
+  align-items: center;
+  position: relative; z-index: 1;
+}
+
+
+/* ── Trust column (founder) ──────────────────── */
+.testimonial-quote {
+  font-family: var(--font-serif);
+  font-size: clamp(1.5rem, 2.4vw, 2.5rem);
+  font-weight: 400;
+  line-height: 1.3;
+  letter-spacing: -0.02em;
+  color: var(--text);
+  margin: 1.2rem 0 2.5rem;
+}
+.testimonial-quote em { font-style: italic; color: var(--accent-gold); }
+
+.testimonial-author {
+  display: flex; align-items: center; gap: 1.5rem;
+}
+
+.author-avatar {
+  width: 104px; height: 104px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 1px solid var(--border-mid);
+  flex-shrink: 0;
+  position: relative;
+}
+.author-avatar img {
+  width: 100%; height: 100%; object-fit: cover;
+  position: absolute; inset: 0;
+}
+.avatar-placeholder {
+  width: 100%; height: 100%;
+}
+
+.author-name {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--text);
+}
+.author-role {
+  font-size: 0.98rem;
+  color: var(--text-mid);
+  margin-top: 0.3rem;
+}
+.author-bio {
+  font-size: 0.85rem;
+  color: var(--text-mid);
+  margin-top: 0.45rem;
+  font-family: var(--font-mono);
+  letter-spacing: 0.04em;
+}
+
+.testimonial-note {
+  margin-top: 2.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text-mid);
+}
+
+/* ── CTA column ───────────────────────────────── */
+.contact-title {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 2.8vw, 3.4rem);
+  font-weight: 400;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: var(--text);
+  margin: 1.2rem 0 1.8rem;
+}
+
+.contact-sub {
+  font-size: 1.45rem; line-height: 1.65;
+  color: var(--text-mid);
+  max-width: 48ch;
+  margin: 0 0 2.5rem;
+}
+
+.contact-actions {
+  display: flex;
+  justify-content: flex-start; align-items: center;
+  gap: 1rem; flex-wrap: wrap;
+}
+
+.contact-email {
+  margin-top: 1.8rem;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  opacity: 0.35;
+}
+.contact-email a {
+  color: var(--text-mid);
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+.contact-email a:hover { opacity: 0.7; }
+
+@media (max-width: 900px) {
+  .closing-inner { grid-template-columns: 1fr; gap: 4rem; }
+  .closing-col, .closing-trust, .closing-cta { max-width: none; justify-self: stretch; }
+}
+@media (max-width: 768px) {
+  .closing { padding: 5rem 1.5rem; }
+  .contact-actions { flex-direction: column; align-items: stretch; }
+  .btn-primary, .btn-ghost { width: 100%; justify-content: center; }
+}

@@ -1,0 +1,224 @@
+.manifesto {
+  padding: 10rem 2.5rem 12rem;
+  background: var(--bg);
+  position: relative;
+  overflow: hidden;
+}
+
+.manifesto-glow {
+  position: absolute;
+  top: -40%; left: -10%;
+  width: 60%; height: 80%;
+  background: radial-gradient(ellipse, rgba(0,229,196,0.04) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.manifesto-inner { max-width: 1800px; margin: 0 auto; position: relative; }
+
+/* Section label shared */
+.section-label {
+  font-family: var(--font-mono);
+  font-size: 1.0625rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--accent-teal);
+  margin-bottom: 1.5rem;
+  display: flex; align-items: center; gap: 0.8rem;
+}
+.section-label::before {
+  content: '';
+  width: 24px; height: 1px;
+  background: var(--accent-teal);
+  display: block; flex-shrink: 0;
+}
+
+.manifesto-title {
+  font-family: var(--font-serif);
+  font-size: clamp(2.2rem, 3.89vw, 5rem);
+  font-weight: 400;
+  line-height: 1.06;
+  letter-spacing: -0.02em;
+  color: var(--text);
+  max-width: 70vw;
+}
+
+.manifesto-line {
+  display: block;
+  overflow: hidden;
+  padding-bottom: 0.05em;
+}
+
+.anim-word-wrap {
+  display: inline-block;
+  overflow: hidden;
+  margin-right: 0.22em;
+  vertical-align: top;
+}
+.anim-word { display: inline-block; }
+.text-italic { font-style: italic; color: var(--accent-gold); }
+
+.manifesto-split {
+  margin-top: 5rem;
+}
+
+.manifesto-text {
+  max-width: 50vw;
+  font-size: clamp(1.125rem, calc(0.92rem + 0.84vw), 2rem);
+  line-height: 1.82;
+  color: var(--text-mid);
+  font-weight: 300;
+  display: flex; flex-direction: column; gap: 1.4rem;
+}
+.manifesto-text strong { color: var(--text); font-weight: 500; }
+
+/* ── Tease → invita a seguir (remate vive en Payoff.css) ──── */
+.manifesto-tease {
+  margin-top: 1rem;
+  width: 100%;
+  padding-right: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  text-align: right;
+}
+.hook-rule {
+  width: 1px;
+  height: 28px;
+  background: linear-gradient(var(--accent-teal), transparent);
+  transform-origin: top center;
+  margin-bottom: 1.4rem;
+}
+.tease-question-btn {
+  position: relative;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: none;
+  animation: teasePulse 2.6s ease-in-out infinite;
+}
+.tease-question-btn::before {
+  content: '';
+  position: absolute;
+  inset: -70% -25%;
+  background: radial-gradient(ellipse at center, rgba(0,229,196,0.4) 0%, rgba(0,229,196,0.22) 50%, transparent 80%);
+  filter: blur(32px);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+  z-index: -1;
+}
+.tease-question-btn:hover::before {
+  opacity: 1;
+}
+.tease-question {
+  position: relative;
+  display: inline;
+  font-family: var(--font-sans);
+  font-size: clamp(1.5rem, 2.42vw, 2.07rem);
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--text-mid);
+  transition: color 0.3s;
+}
+.tease-question-btn:hover .tease-question {
+  color: var(--text);
+}
+.tease-question-arrow {
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 0.5rem;
+  color: var(--accent-teal);
+  transition: transform 0.3s var(--ease-out);
+}
+.tease-question-btn:hover .tease-question-arrow {
+  transform: translateY(6px);
+}
+@keyframes teasePulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
+.manifesto-stats {
+  display: flex; flex-direction: column; gap: 3rem;
+}
+
+/* ── Hybrid stat figure ─────────────────────────────────── */
+.manifesto-figure-float {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: min(560px, 36vw);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.manifesto-figure {
+  position: relative;
+  width: 100%;
+  max-width: 560px;
+  aspect-ratio: 1;
+}
+.manifesto-figure svg { width: 100%; height: 100%; overflow: visible; }
+
+.figure-stat {
+  position: absolute; inset: 0;
+  display: flex; align-items: center; justify-content: center;
+}
+.figure-num {
+  font-family: var(--font-serif);
+  font-size: clamp(3.2rem, 4.6vw, 4.6rem);
+  font-weight: 300;
+  color: var(--text);
+  line-height: 1;
+}
+.figure-caption-wrap {
+  width: 100%;
+}
+.figure-caption {
+  text-align: right;
+  font-size: 1.25rem;
+  line-height: 1.6;
+  color: var(--text-mid);
+  max-width: 32ch;
+  margin-top: -3.5rem;
+  margin-left: auto;
+}
+.figure-source {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.05em;
+  opacity: 0.45;
+  margin-top: 0.5rem;
+}
+
+.stat-number {
+  font-family: var(--font-serif);
+  font-size: clamp(3rem, 5vw, 5.5rem);
+  font-weight: 300;
+  line-height: 1;
+  color: var(--text);
+}
+
+.stat-label {
+  font-size: 0.82rem;
+  letter-spacing: 0.04em;
+  color: var(--text-mid);
+  margin-top: 0.4rem;
+}
+
+@media (max-width: 768px) {
+  .manifesto { padding: 5rem 1.5rem; }
+  .manifesto-title { font-size: clamp(2.6rem, 8vw, 3.4rem); max-width: 100%; }
+  .manifesto-text { font-size: 1.1rem; max-width: 100%; }
+  .section-label { font-size: 0.68rem; }
+  .manifesto-figure-float {
+    position: static;
+    width: 100%;
+    align-items: center;
+    margin-top: 3rem;
+  }
+  .manifesto-figure { max-width: 280px; }
+  .figure-caption { text-align: center; font-size: 0.84rem; margin-top: 1rem; }
+  .manifesto-tease { align-items: center; text-align: center; }
+}
