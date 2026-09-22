@@ -3,6 +3,7 @@
   padding: 8rem 2.5rem;
   background: var(--bg);
   border-top: 1px solid var(--border);
+  overflow-x: clip; /* el resplandor del radar (inset -18%) desbordaba la página a lo ancho */
 }
 .modelo-inner {
   max-width: 1800px;
