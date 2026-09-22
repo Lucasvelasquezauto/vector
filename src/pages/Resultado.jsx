@@ -108,6 +108,13 @@ export default function Resultado() {
               <path d="M2.5 7.5H12.5M12.5 7.5L7.5 2.5M12.5 7.5L7.5 12.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>
           </a>
+          <div className="res-lines">
+            <span className="res-lines-label">Vea los productos para su caso</span>
+            <div className="res-lines-links">
+              <Link to="/pro" className="res-line-link magnetic">Profesional independiente</Link>
+              <Link to="/pymes" className="res-line-link magnetic">Empresa</Link>
+            </div>
+          </div>
           <Link to="/#modelo" className="res-back-link magnetic">¿Qué significa y cómo lo mejoramos?</Link>
         </motion.div>
       </div>

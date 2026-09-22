@@ -95,10 +95,10 @@ export default function Sectors() {
           initial={{ opacity: 0, y: 32 }} animate={headerInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
         >
-          <div className="section-label">A quién servimos</div>
+          <div className="section-label">Modelos de intervención</div>
           <h2 className="sectors-title">
-            Sectores que<br />
-            <em className="text-gold">transformamos</em>
+            Algunos sectores<br />
+            <em className="text-gold">que transformamos</em>
           </h2>
         </motion.div>
         <motion.p
@@ -106,7 +106,7 @@ export default function Sectors() {
           initial={{ opacity: 0, y: 24 }} animate={headerInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
         >
-          Profesionales independientes y pequeñas empresas de servicios en Colombia.
+          El modelo VECTOR se adapta a cualquier profesión o tipo de empresa.
           Pase el cursor sobre cada sector para ver ideas de automatización.
         </motion.p>
       </div>

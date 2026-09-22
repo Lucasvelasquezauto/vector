@@ -4,7 +4,7 @@ import LogoVector from './LogoVector'
 import './Nav.css'
 
 const links = [
-  { label: 'Servicios', href: '#services' },
+  { label: 'Productos y precios', href: '#services' },
   { label: 'Sectores', href: '#sectors' },
   { label: 'Nosotros', href: '#contact' },
 ]

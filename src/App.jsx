@@ -8,7 +8,7 @@ import Hero        from './components/Hero'
 import Marquee     from './components/Marquee'
 import Manifesto   from './components/Manifesto'
 import Payoff      from './components/Payoff'
-import { ModeloVector, Niveles } from './components/Services'
+import { ModeloVector } from './components/Services'
 import Audience    from './components/Audience'
 import Sectors     from './components/Sectors'
 import Testimonial from './components/Testimonial'
@@ -38,7 +38,6 @@ function Home() {
         <Manifesto />
         <Payoff />
         <ModeloVector />
-        <Niveles />
         <Audience />
         <Sectors />
         <Testimonial />

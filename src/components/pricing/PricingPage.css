@@ -161,8 +161,6 @@
 .pp-aside p { color: var(--text-mid); font-size: 15px; margin-top: 10px; }
 .pp-aside b { color: var(--text); font-weight: 500; }
 
-.pp-warranty { border: 1px solid rgba(0,229,196,.32); background: rgba(0,229,196,.045); padding: 22px 20px; margin-top: 21px; }
-.pp-warranty p { color: var(--text-mid); font-size: 15px; margin-top: 10px; }
 
 .pp-cond { margin-top: 21px; }
 .pp-cond div { padding: 15px 0; border-bottom: 1px solid var(--border); }

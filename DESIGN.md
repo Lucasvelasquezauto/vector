@@ -43,7 +43,7 @@ Ver `PRODUCT.md` para personalidad de marca y anti-referencias completas.
 
 ### Reglas de color
 - Teal = acento "actual/predeterminado" en todo el sitio (CTAs, líneas, hover). Dorado = momentos de énfasis puntual dentro de un texto (`<em className="text-gold">`) o para diferenciar un elemento del resto (ej. botón de Payoff es dorado precisamente porque la frase de arriba ya usa teal).
-- La tarjeta 3 de Niveles ("Asesoría Estratégica") usa un acento **azul** (`#3B82F6`) en vez de teal/dorado — deliberado, para diferenciarla visualmente de las otras dos tarjetas (ver §5.3).
+- En la sección de oferta (§5.6), el panel PRO usa teal y el panel PyME dorado. (El acento azul `#3B82F6` de la antigua tarjeta 3 de Niveles desapareció con esa sección; sigue existiendo solo como `--pp-blue` dentro de `/pro` y `/pymes`).
 - El radar hexagonal de "El Modelo VECTOR" usa teal para "estado actual" y dorado punteado para "potencial/benchmark" — ese par de colores es el lenguaje visual fijo de cualquier radar VECTOR (reutilizado en `ResultRadar.jsx` del flujo de diagnóstico).
 
 ### El hexágono como motivo
@@ -78,7 +78,7 @@ El hexágono es la forma de la **O del logo** (ver `LogoVector.jsx` y `LogoSymbo
 Orden real y definitivo, ruta `/`:
 
 ```
-Nav → Hero → Marquee → Manifesto → Payoff → ModeloVector → Niveles → Sectors → Testimonial → Footer
+Nav → Hero → Marquee → Manifesto → Payoff → ModeloVector → Audience (oferta por línea) → Sectors → Testimonial → Footer
 ```
 
 Rutas adicionales: `/evaluacion` (`Diagnostico.jsx`, el cuestionario VECTOR de 12 preguntas) y `/resultado` (`Resultado.jsx`, pantalla de resultado con `ResultRadar`). Ambas con `FlowHeader` minimalista en vez del `Nav` completo.
@@ -90,7 +90,7 @@ Rutas adicionales: `/evaluacion` (`Diagnostico.jsx`, el cuestionario VECTOR de 1
 ## 5. Estado final de cada sección
 
 ### 5.1 Nav (`Nav.jsx` + `Nav.css`)
-Logo + 3 links (`Servicios #services`, `Sectores #sectors`, `Nosotros #contact` — apunta a la sección fusionada) + CTA "Hablar con nosotros" → `#contact`. Scroll-to-hash vía `scrollIntoView`, no anchors reales (`href="#"` con `preventDefault`).
+Logo + 3 links (`Productos y precios #services`, `Sectores #sectors`, `Nosotros #contact` — apunta a la sección fusionada) + CTA "Hablar con nosotros" → `#contact`. Scroll-to-hash vía `scrollIntoView`, no anchors reales (`href="#"` con `preventDefault`).
 
 ### 5.2 Hero
 Título de 3 líneas, gráfico decorativo `hero-geo` con hexágonos (no diamantes), reacciona al mouse vía Framer Motion `useTransform`. Texto actual: "Estrategia competitiva para empresas y profesionales independientes. Planificamos su ruta de evolución competitiva soportada en herramientas de Inteligencia Artificial."
@@ -102,16 +102,17 @@ Título "Desarrollamos criterio / para decidir con *autonomía*." + stat flotant
 Frase "Tal vez se sorprenda con lo que descubra." sobre marca de agua `LogoSymbol` (la V + hexágono del logo real, no un hexágono genérico). Botón dorado "Quiero mi diagnóstico" → `/evaluacion` (react-router `Link`), con meta-línea rescatada de la antigua sección Evaluación: "Gratuita · 12 preguntas · 5 minutos · Sin registro".
 
 ### 5.5 ModeloVector (`Services.jsx`, export `ModeloVector`)
-Radar hexagonal interactivo de 6 ejes (V-E-C-T-O-R), hover/tap por dimensión muestra nombre + descripción. Polígono teal = estado actual, polígono dorado punteado = potencial. CTA "Conozca cómo lo logramos juntos" hace scroll a `#services` (Niveles).
+Radar hexagonal interactivo de 6 ejes (V-E-C-T-O-R), hover/tap por dimensión muestra nombre + descripción. Polígono teal = estado actual, polígono dorado punteado = potencial. CTA "Conozca cómo lo logramos juntos" hace scroll a `#services` (la sección de oferta, §5.6).
 
-### 5.6 Niveles (`Services.jsx`, export `Niveles`, `id="services"`)
-3 tarjetas full-bleed, sin caja de icono (explícitamente rechazado por verse "como cartelera escolar"). Cada tarjeta: número grande en círculo + nombre + descripción + arte SVG de fondo que comunica la **estructura temporal** del nivel (no es decoración abstracta):
-- **1. Diagnóstico VECTOR** (entregable único): puntos de pulso que se conectan, sugiere un "snapshot" — acento teal.
-- **2. Plan de Acción VECTOR** (proceso acotado de varias semanas): onda continua que se desplaza (loop de 12s, período de 400px ajustado para que no salte) — acento dorado.
-- **3. Asesoría Estratégica** (relación abierta/continua): anillos concéntricos que se expanden indefinidamente — acento **azul** `#3B82F6` (deliberadamente distinto de las otras dos para diferenciar el nivel "siempre abierto").
-Tooltip por tarjeta (botón "i", hover en desktop + tap en mobile) muestra el entregable concreto ("Recibe: ..."). Desktop: grid de 3 columnas que llena la pantalla (`min-height:100svh`, flex stretch). Mobile: columna única, `height:auto`, des-acoplado del stretch de desktop.
-
+### 5.6 Oferta por línea (`Audience.jsx` + `Audience.css`, `id="services"`)
+Reemplaza (2026-09-22) a las antiguas secciones "Tres niveles de acompañamiento" y "¿Por dónde empezar?". Esas secciones venían del modelo de cobro por horas; la oferta ahora es un portafolio de productos con entregables y precios publicados por línea. Objetivo único de la sección: que el visitante se identifique como profesional o empresa y haga clic hacia `/pro` o `/pymes`, donde está el detalle y el CTA de agenda.
+- Título: "VECTOR se articula / *con su modelo de negocio*" (redacción del dueño).
+- Dos paneles a pantalla completa (flexbox, lado a lado en desktop, apilados ≤900px). El panel entero es un `Link`; el botón pill "Ver productos y precios" es un `span` dentro de él (sin interactivos anidados).
+- Cada panel: etiqueta de línea, identificación en primera persona ("Soy profesional independiente" / "Tengo una empresa"), promesa en cursiva tomada del título de la ficha de cada línea, lista de nombres de producto **derivada de `pricingData.js`** (`route.rows`, parte antes de " — ") para que nunca se desalinee del portafolio, y el CTA.
+- Sin descripciones de producto, sin precios, sin duraciones, sin lista de profesiones/sectores: el público no se limita a los sectores de ejemplo, y el detalle vive en las páginas de línea.
+- Marca de agua: hexágono doble en el acento de la línea (motivo del logo, ver §2).
 ### 5.7 Sectors (`Sectors.jsx`, `id="sectors"`)
+Encabezado (2026-09-22): etiqueta "Modelos de intervención", título "Algunos sectores / *que transformamos*". Los cuatro sectores son **ejemplos**, no el límite del público; el texto de la sección debe dejarlo claro.
 Acordeón full-bleed de 4 paneles fotográficos (psicólogos, seguros, legal, bienestar), construido con flexbox (`flex-grow:1` por defecto, `flex-grow:2` en `.is-expanded`) — no CSS Grid, para evitar el bug de estiramiento uniforme de filas. Hover (desktop) o tap (mobile) expande un panel y revela su `headline` + 3 `automations` específicas del sector (copy única por sector, no genérica). Mobile: columna vertical, paneles colapsados a 160px, expandido a 420px.
 
 ### 5.8 Testimonial / Closing (`Testimonial.jsx`, `id="contact"`)

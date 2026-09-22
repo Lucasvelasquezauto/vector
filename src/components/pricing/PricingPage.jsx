@@ -179,15 +179,10 @@ export default function PricingPage({ data }) {
           <MomentSection m={m} forWhomPrefix={data.forWhomPrefix} key={m.id} />
         ))}
 
-        {/* ── Garantía y condiciones ── */}
+        {/* ── Condiciones ── */}
         <section id="condiciones" className="pp-section">
-          <span className="pp-label">Garantía y condiciones</span>
+          <span className="pp-label">Condiciones</span>
           <h2 className="pp-h2">Lo que <em>respalda</em> el acuerdo</h2>
-
-          <div className="pp-warranty">
-            <h3>Garantía de valor del diagnóstico</h3>
-            <p>{data.guarantee}</p>
-          </div>
 
           <dl className="pp-cond">
             {data.conditions.map((c) => (

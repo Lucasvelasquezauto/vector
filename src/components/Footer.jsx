@@ -13,7 +13,7 @@ const columns = [
   {
     title: 'Empresa',
     links: [
-      { label: 'Servicios', href: '#services' },
+      { label: 'Productos y precios', href: '#services' },
       { label: 'Sectores', href: '#sectors' },
       { label: 'Nosotros', href: '#contact' },
     ],
@@ -40,7 +40,7 @@ export default function Footer() {
             <LogoVector width={143} />
           </div>
           <p className="footer-tagline">
-            Consultoría estratégica en competitividad con inteligencia artificial para profesionales independientes y pequeñas empresas en Colombia.
+            Consultoría estratégica en competitividad con inteligencia artificial para profesionales independientes y empresas en Colombia.
           </p>
         </div>
 

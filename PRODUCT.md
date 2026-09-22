@@ -6,7 +6,7 @@ brand
 
 ## Users
 
-Profesionales independientes y pequeñas empresas de servicios en Colombia (psicólogos, asesores de seguros, abogados, negocios de bienestar/spa). Visitan el sitio para evaluar si VECTOR Estrategia es una consultora seria antes de invertir tiempo o dinero. Navegan tanto desde computador como desde celular. Llegan con cierta desconfianza hacia "todo lo de IA" y necesitan ver criterio y rigor, no entusiasmo tecnológico.
+Profesionales independientes de cualquier área y empresas de cualquier sector en Colombia. Los sectores que muestra el sitio (psicología, seguros, derecho, bienestar/spa) son ejemplos de arranque, no un límite. No llamar "pequeña" a la empresa del cliente. Visitan el sitio para evaluar si VECTOR Estrategia es una consultora seria antes de invertir tiempo o dinero. Navegan tanto desde computador como desde celular. Llegan con cierta desconfianza hacia "todo lo de IA" y necesitan ver criterio y rigor, no entusiasmo tecnológico.
 
 ## Product Purpose
 

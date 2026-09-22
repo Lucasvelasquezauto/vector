@@ -16,7 +16,7 @@ export const PRO_DATA = {
     { id: 'reconocimiento', label: 'Reconocimiento', price: 'USD 590' },
     { id: 'apropiacion', label: 'Apropiación', price: 'USD 1.490' },
     { id: 'consolidacion', label: 'Consolidación', price: 'USD 290/mes' },
-    { id: 'condiciones', label: 'Garantía y condiciones' },
+    { id: 'condiciones', label: 'Condiciones' },
   ],
 
   freeSteps: [
@@ -54,7 +54,7 @@ export const PRO_DATA = {
   moments: [
     {
       id: 'reconocimiento', accent: '',
-      momentLabel: 'Primer momento — Reconocimiento',
+      momentLabel: 'Reconocimiento',
       title: 'Diagnóstico VECTOR Profesional',
       question: '¿Dónde está mi mayor oportunidad de mejora y cuánto puede valer?',
       forWhom: 'quiere claridad antes de invertir tiempo o dinero en herramientas, y prefiere una lectura ordenada de sus procesos profesionales con una priorización consecuente.',
@@ -80,7 +80,7 @@ export const PRO_DATA = {
         { label: 'Requisito', value: 'Ninguno' },
       ],
       notes: [
-        '**Hasta dónde llega este momento.** El diagnóstico deja cuantificada cada recomendación, en qué orden abordarla y qué retorno potencial ofrece. La construcción de las herramientas ocurre en la Apropiación o por su cuenta, siguiendo el mapa de oportunidades.',
+        '**Hasta dónde llega el diagnóstico.** Deja cuantificada cada recomendación, en qué orden abordarla y qué retorno potencial ofrece. La construcción de las herramientas ocurre en la Apropiación o por su cuenta, siguiendo el mapa de oportunidades.',
         '**Cómo alimenta a la Apropiación.** El mapa de oportunidades se convierte, sin rehacerse, en el plan de trabajo de las sesiones — y en el orden de intervención. La cuenta de su tiempo queda como línea base contra la cual se mide el resultado al cerrar.',
       ],
       price: { amount: 'USD 590', terms: '50% al agendar, 50% antes de la sesión de entrega.', altBold: 'USD 400', altText: 'a partir de la Sesión de Enfoque: sus USD 190 se abonan completos, porque ese análisis se absorbe dentro del diagnóstico.' },
@@ -91,7 +91,7 @@ export const PRO_DATA = {
     },
     {
       id: 'apropiacion', accent: 'b',
-      momentLabel: 'Segundo momento — Apropiación',
+      momentLabel: 'Apropiación',
       title: 'Plan de Acción VECTOR',
       question: '¿Qué construyo primero, y cómo lo hago bien?',
       forWhom: 'ya tiene el diagnóstico, sabe qué quiere resolver y quiere construirlo acompañado, con criterio propio para decidir y contratar.',
@@ -114,14 +114,14 @@ export const PRO_DATA = {
         { label: 'Requisito', value: 'Reconocimiento' },
       ],
       notes: [
-        '**Hasta dónde llega este momento.** Acompaño el diseño, la decisión y la evaluación de proveedores. La ejecución la hace usted, su equipo o el proveedor que contrate, con la especificación en la mano y criterio para exigir. Por eso el resultado medido al cierre es suyo: es lo que usted puso a funcionar.',
+        '**Hasta dónde llega el plan.** Acompaño el diseño, la decisión y la evaluación de proveedores. La ejecución la hace usted, su equipo o el proveedor que contrate, con la especificación en la mano y criterio para exigir. Por eso el resultado medido al cierre es suyo: es lo que usted puso a funcionar.',
         '**Cómo alimenta a la Consolidación.** Las especificaciones y los criterios de decisión que construimos aquí se vuelven el marco con el que se evalúa cada oferta y cada compra nueva. Con ese marco listo, una revisión de treinta minutos alcanza para resolver una contratación.',
       ],
       price: { amount: 'USD 1.490', terms: '50/50 o tres cuotas sin recargo.', altBold: 'USD 1.313', altText: 'continuando dentro de los 30 días siguientes a su sesión de entrega del Reconocimiento: no hay que rehacer diagnóstico ni inducción, y ese menor costo se le traslada.' },
     },
     {
       id: 'consolidacion', accent: 'c',
-      momentLabel: 'Tercer momento — Consolidación',
+      momentLabel: 'Consolidación',
       title: 'Asesoría Estratégica',
       question: '¿Cómo sostengo la ventaja en la próxima decisión?',
       forWhom: 'ya tiene su ruta andando y quiere un interlocutor estratégico permanente para sus decisiones de competitividad y tecnología.',
@@ -146,22 +146,21 @@ export const PRO_DATA = {
     },
   ],
 
-  guarantee: 'Si al cerrar la sesión de entrega el informe identificó menos de tres oportunidades accionables en su práctica, se devuelve el 100% de lo pagado.',
   conditions: [
     { title: 'Las cifras son suyas', text: 'Las horas, los costos y el ingreso potencial de cada entregable se calculan con los datos que usted aporta en sesión. Son su propia línea base.' },
     { title: 'Moneda', text: 'Precios en dólares. La factura se emite en pesos colombianos a la TRM del día de la cotización.' },
     { title: 'Impuestos', text: 'Los precios no incluyen impuestos.' },
     { title: 'Formas de pago', text: '50% para confirmar agenda y 50% antes de la entrega. Tres cuotas sin recargo desde USD 1.490. Cinco por ciento de descuento por pago anticipado total.' },
-    { title: 'Puede detenerse', text: 'Cada momento cierra con un entregable completo. La permanencia se limita al compromiso mínimo de la Consolidación.' },
+    { title: 'Puede detenerse', text: 'Cada producto cierra con un entregable completo. La permanencia se limita al compromiso mínimo de la Consolidación.' },
     { title: 'Reprogramación', text: 'Con al menos 24 horas de aviso, sin costo.' },
   ],
 }
 
 export const PYME_DATA = {
-  lineLabel: 'Línea PyME — Pequeñas empresas de servicios',
+  lineLabel: 'Línea PyME — Empresas con proyección de futuro',
   forWhomPrefix: 'Es para su empresa si',
   title: 'Estrategias de competitividad soportadas en Inteligencia Artificial: *libere capacidad, aumente su margen.*',
-  lede: 'Para negocios de servicios donde la administración consume el tiempo que debería ir al cliente. Bienestar, estética y spa, salud no clínica, centros de terapias y firmas pequeñas de servicios profesionales que quieren crecer sin que la operación crezca al mismo ritmo.',
+  lede: 'Para negocios donde la administración consume el tiempo que debería ir al cliente. Bienestar, estética y spa, salud no clínica, firmas de servicios profesionales y, en general, cualquier empresa que quiera crecer sin que la operación crezca al mismo ritmo.',
 
   toc: [
     { id: 'gratis', label: 'Los dos primeros pasos', price: 'Sin costo' },
@@ -171,7 +170,7 @@ export const PYME_DATA = {
     { id: 'mapa', label: 'Mapa de Competitividad', price: 'USD 690' },
     { id: 'apropiacion', label: 'Apropiación', price: 'USD 3.900' },
     { id: 'consolidacion', label: 'Consolidación', price: 'USD 590/mes' },
-    { id: 'condiciones', label: 'Garantía y condiciones' },
+    { id: 'condiciones', label: 'Condiciones' },
   ],
 
   freeSteps: [
@@ -209,7 +208,7 @@ export const PYME_DATA = {
   moments: [
     {
       id: 'reconocimiento', accent: '',
-      momentLabel: 'Primer momento — Reconocimiento',
+      momentLabel: 'Reconocimiento',
       title: 'Diagnóstico VECTOR Empresarial',
       question: '¿Dónde está nuestra mayor oportunidad de eficiencia y cuánto puede valer?',
       forWhom: 'la carga administrativa crece más rápido que las ventas, y quiere priorizar dónde invertir en tecnología antes de contratar a ningún proveedor.',
@@ -236,7 +235,7 @@ export const PYME_DATA = {
         { label: 'Requisito', value: 'Ninguno' },
       ],
       notes: [
-        '**Hasta dónde llega este momento.** El diagnóstico deja cuantificada cada oportunidad, en qué orden abordarla y qué retorno potencial ofrece. La definición técnica y la contratación de proveedores ocurren en la Apropiación o por su cuenta, siguiendo la matriz de prioridad y retorno.',
+        '**Hasta dónde llega el diagnóstico.** Deja cuantificada cada oportunidad, en qué orden abordarla y qué retorno potencial ofrece. La definición técnica y la contratación de proveedores ocurren en la Apropiación o por su cuenta, siguiendo la matriz de prioridad y retorno.',
         '**Cómo alimenta a la Apropiación.** La matriz de prioridad y retorno se convierte, sin rehacerse, en el orden en que se escriben las especificaciones funcionales. El costo de la ineficiencia queda como línea base contra la cual se mide el resultado al cerrar.',
       ],
       price: { amount: 'USD 1.890', terms: '50% al agendar, 50% antes de la sesión de entrega.', altBold: 'USD 1.200', altText: 'si empezó por el Mapa de Competitividad. El total es el mismo — 690 + 1.200 = 1.890 — contrate el diagnóstico completo de una vez o por fases.' },
@@ -271,7 +270,7 @@ export const PYME_DATA = {
     },
     {
       id: 'apropiacion', accent: 'b',
-      momentLabel: 'Segundo momento — Apropiación',
+      momentLabel: 'Apropiación',
       title: 'Plan de Implementación VECTOR',
       question: '¿Qué contratamos, a quién, y cómo sabemos que quedó bien hecho?',
       forWhom: 'ya tiene el diagnóstico, sabe qué procesos quiere resolver y quiere contratar con una especificación escrita y no con una idea.',
@@ -294,14 +293,14 @@ export const PYME_DATA = {
         { label: 'Requisito', value: 'Reconocim.' },
       ],
       notes: [
-        '**Hasta dónde llega este momento.** Acompaño la definición, la decisión y la evaluación de proveedores. El desarrollo lo hace su equipo o el proveedor que contrate, con la especificación en la mano y criterio para exigir. Por eso el resultado medido al cierre es suyo: es lo que su empresa puso a funcionar.',
+        '**Hasta dónde llega el plan.** Acompaño la definición, la decisión y la evaluación de proveedores. El desarrollo lo hace su equipo o el proveedor que contrate, con la especificación en la mano y criterio para exigir. Por eso el resultado medido al cierre es suyo: es lo que su empresa puso a funcionar.',
         '**Cómo alimenta a la Consolidación.** Las especificaciones y la matriz de evaluación se vuelven el marco con el que se mide cada cotización nueva. Con ese marco listo, una revisión alcanza para resolver una contratación que antes tomaba semanas.',
       ],
       price: { amount: 'USD 3.900', terms: 'Tres cuotas sin recargo.', altBold: 'USD 3.432', altText: 'continuando dentro de los 30 días siguientes a su sesión de entrega del Reconocimiento: no hay que rehacer diagnóstico ni inducción, y ese menor costo se le traslada.' },
     },
     {
       id: 'consolidacion', accent: 'c',
-      momentLabel: 'Tercer momento — Consolidación',
+      momentLabel: 'Consolidación',
       title: 'Alianza VECTOR',
       question: '¿Cómo decidimos la próxima inversión tecnológica con criterio?',
       forWhom: 'ya tiene su ruta andando y quiere un interlocutor estratégico permanente para las decisiones de competitividad y tecnología.',
@@ -326,13 +325,12 @@ export const PYME_DATA = {
     },
   ],
 
-  guarantee: 'Si al cerrar la sesión de entrega el informe identificó menos de tres oportunidades con impacto financiero estimable, se devuelve el 100% de lo pagado.',
   conditions: [
     { title: 'Las cifras son suyas', text: 'El costo de la ineficiencia, los ahorros y los retornos estimados se calculan con los datos que su empresa aporta en sesión. Son su propia línea base.' },
     { title: 'Moneda', text: 'Precios en dólares. La factura se emite en pesos colombianos a la TRM del día de la cotización.' },
     { title: 'Impuestos', text: 'Los precios no incluyen impuestos.' },
     { title: 'Formas de pago', text: '50% para confirmar agenda y 50% antes de la entrega. Tres cuotas sin recargo desde USD 1.890. Cinco por ciento de descuento por pago anticipado total.' },
-    { title: 'Puede detenerse', text: 'Cada momento cierra con un entregable completo. La permanencia se limita al compromiso mínimo de la Consolidación.' },
+    { title: 'Puede detenerse', text: 'Cada producto cierra con un entregable completo. La permanencia se limita al compromiso mínimo de la Consolidación.' },
     { title: 'Reprogramación', text: 'Con al menos 24 horas de aviso, sin costo.' },
   ],
 }
