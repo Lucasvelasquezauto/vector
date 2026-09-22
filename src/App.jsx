@@ -9,11 +9,14 @@ import Marquee     from './components/Marquee'
 import Manifesto   from './components/Manifesto'
 import Payoff      from './components/Payoff'
 import { ModeloVector, Niveles } from './components/Services'
+import Audience    from './components/Audience'
 import Sectors     from './components/Sectors'
 import Testimonial from './components/Testimonial'
 import Footer      from './components/Footer'
 import Diagnostico from './pages/Diagnostico'
 import Resultado   from './pages/Resultado'
+import Pro         from './pages/Pro'
+import Pymes       from './pages/Pymes'
 
 // Add magnetic hover to all .magnetic elements not already bound
 function addMagneticListeners() {
@@ -36,6 +39,7 @@ function Home() {
         <Payoff />
         <ModeloVector />
         <Niveles />
+        <Audience />
         <Sectors />
         <Testimonial />
       </main>
@@ -78,6 +82,8 @@ export default function App() {
         <Route path="/" element={<Home />} />
         <Route path="/evaluacion" element={<Diagnostico />} />
         <Route path="/resultado" element={<Resultado />} />
+        <Route path="/pro" element={<Pro />} />
+        <Route path="/pymes" element={<Pymes />} />
       </Routes>
     </>
   )

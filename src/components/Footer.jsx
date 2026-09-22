@@ -1,13 +1,13 @@
+import { Link } from 'react-router-dom'
 import LogoVector from './LogoVector'
 import './Footer.css'
 
 const columns = [
   {
-    title: 'Servicios',
+    title: 'Portafolio',
     links: [
-      { label: 'Diagnóstico VECTOR', href: '#services' },
-      { label: 'Plan de Acción VECTOR', href: '#services' },
-      { label: 'Asesoría Estratégica', href: '#services' },
+      { label: 'Línea PRO', href: '/pro' },
+      { label: 'Línea PyME', href: '/pymes' },
     ],
   },
   {
@@ -52,6 +52,8 @@ export default function Footer() {
                 <li key={label}>
                   {href.startsWith('mailto:') ? (
                     <a href={href} className="footer-link magnetic">{label}</a>
+                  ) : href.startsWith('/') ? (
+                    <Link to={href} className="footer-link magnetic">{label}</Link>
                   ) : (
                     <button type="button" className="footer-link magnetic" onClick={() => scrollTo(href)}>
                       {label}
