@@ -71,9 +71,13 @@
 
 @media (max-width: 900px) {
   .modelo-inner { grid-template-columns: 1fr; gap: 3rem; }
+  .modelo-radar-wrap { width: 100%; max-width: 560px; margin-inline: auto; }
+  .modelo-radar { aspect-ratio: 276 / 314; }
 }
 @media (max-width: 768px) {
   .modelo { padding: 5rem 1.5rem; }
+  /* el radar usa todo el ancho de la pantalla; el viewBox recortado ya deja margen interno */
+  .modelo-radar-wrap { width: calc(100% + 3rem); margin-inline: -1.5rem; }
 }
 
 

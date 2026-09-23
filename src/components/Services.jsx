@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import { motion, useInView } from 'framer-motion'
 import './Services.css'
 
@@ -43,11 +43,29 @@ function dataStr(scores) {
 
 // ─── Interactive radar — the VECTOR model ─────────────────────────────────────
 
+// En pantallas angostas el radar va en una sola columna: se recorta el viewBox al
+// contenido real (sin el aire lateral) para que todo se vea más grande y legible.
+const NARROW_QUERY = '(max-width: 900px)'
+const VIEWBOX_WIDE   = '0 0 400 335'
+const VIEWBOX_NARROW = '62 12 276 314'
+
+function useNarrow() {
+  const [narrow, setNarrow] = useState(() => typeof window !== 'undefined' && window.matchMedia(NARROW_QUERY).matches)
+  useEffect(() => {
+    const mq = window.matchMedia(NARROW_QUERY)
+    const onChange = e => setNarrow(e.matches)
+    mq.addEventListener('change', onChange)
+    return () => mq.removeEventListener('change', onChange)
+  }, [])
+  return narrow
+}
+
 function DiagnosticoArt() {
   const [hovered, setHovered] = useState(null)
+  const narrow = useNarrow()
 
   return (
-    <svg viewBox="0 0 400 335" fill="none" preserveAspectRatio="xMidYMid slice" style={{ pointerEvents: 'all' }}>
+    <svg viewBox={narrow ? VIEWBOX_NARROW : VIEWBOX_WIDE} fill="none" preserveAspectRatio="xMidYMid slice" style={{ pointerEvents: 'all' }}>
       <polygon points={polyStr(R_HEX)} fill="none" stroke="rgba(0,229,196,0.15)" strokeWidth="1"/>
 
       {DIMS.map(d => {
@@ -111,7 +129,7 @@ function DiagnosticoArt() {
 
       <g style={{ opacity: hovered ? 0 : 1, transition: 'opacity 0.18s' }}>
         <text x="200" y="305" textAnchor="middle" fill="rgba(240,235,225,0.15)" fontSize="7"
-          fontFamily="Space Mono, monospace" letterSpacing="2">PASE EL CURSOR SOBRE CADA DIMENSIÓN</text>
+          fontFamily="Space Mono, monospace" letterSpacing="2">{narrow ? 'TOQUE CADA DIMENSIÓN' : 'PASE EL CURSOR SOBRE CADA DIMENSIÓN'}</text>
       </g>
 
       <circle cx="148" cy="40"  r="2"   fill="rgba(0,229,196,0.28)"/>
