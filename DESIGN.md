@@ -102,7 +102,7 @@ Título "Desarrollamos criterio / para decidir con *autonomía*." + stat flotant
 Frase "Tal vez se sorprenda con lo que descubra." sobre marca de agua `LogoSymbol` (la V + hexágono del logo real, no un hexágono genérico). Botón dorado "Quiero mi diagnóstico" → `/evaluacion` (react-router `Link`), con meta-línea rescatada de la antigua sección Evaluación: "Gratuita · 12 preguntas · 5 minutos · Sin registro".
 
 ### 5.5 ModeloVector (`Services.jsx`, export `ModeloVector`)
-Radar hexagonal interactivo de 6 ejes (V-E-C-T-O-R), hover/tap por dimensión muestra nombre + descripción. Polígono teal = estado actual, polígono dorado punteado = potencial. CTA "Conozca cómo lo logramos juntos" hace scroll a `#services` (la sección de oferta, §5.6).
+Radar hexagonal interactivo de 6 ejes (V-E-C-T-O-R), hover/tap por dimensión muestra nombre + descripción. Polígono teal = estado actual, polígono dorado punteado = potencial. CTA "Conozca cómo lo logramos juntos" hace scroll a `#services` (la sección de oferta, §5.6). En pantallas de 900 px o menos (hook `useNarrow`), el viewBox se recorta al contenido real y el radar ocupa todo el ancho en 768 px o menos, para que letras y explicaciones sean legibles. El hint cambia a "TOQUE CADA DIMENSIÓN". `.modelo` lleva `overflow-x: clip` porque el resplandor con `inset:-18%` desbordaba la página a lo ancho.
 
 ### 5.6 Oferta por línea (`Audience.jsx` + `Audience.css`, `id="services"`)
 Reemplaza (2026-09-22) a las antiguas secciones "Tres niveles de acompañamiento" y "¿Por dónde empezar?". Esas secciones venían del modelo de cobro por horas; la oferta ahora es un portafolio de productos con entregables y precios publicados por línea. Objetivo único de la sección: que el visitante se identifique como profesional o empresa y haga clic hacia `/pro` o `/pymes`, donde está el detalle y el CTA de agenda.
@@ -134,6 +134,7 @@ Sección fusionada de "Nosotros" (testimonio del fundador) + "Contacto" (CTA de 
 - **Grid blowout / espacio muerto**: CSS Grid con `align-items: stretch` por defecto + `min-height: auto` implícito en los hijos estira todas las filas a la altura del hermano más alto, dejando huecos en blanco. Pasó en Niveles (mobile) — se evitó proactivamente en Sectors usando flexbox en vez de Grid para la fila de paneles.
 - **Animación de SVG que "vuela" en diagonal**: ver §2, fix con `transform-box: fill-box`.
 - **Salto visible en loop de animación**: el path de la onda (Plan de Acción) tenía un período visual real de 400px pero la animación solo trasladaba 200px antes de reiniciar. Fix: extender el path un período más y ajustar keyframe + duración.
+- **Desbordamiento horizontal por un pseudo-elemento decorativo**: el resplandor del radar (`::before` con `inset` negativo y `blur`) ensanchaba el documento. En celular el menú hamburguesa quedaba pegado al borde y la página se podía deslizar de lado. Solución: `overflow-x: clip` en la sección (clip no crea contenedor de scroll ni recorta en vertical). Para diagnosticar, ocultar ramas del DOM y medir `document.documentElement.scrollWidth`.
 - **Footer con email sin wrap**: el correo largo desbordaba su columna en mobile. Fix: `overflow-wrap: anywhere` en `.footer-link`.
 - **Hero/Nav se superponían en mobile**: el padding del Hero no dejaba espacio para el logo del Nav fijo. Fix: padding-top explícito en el breakpoint mobile de `Hero.css`.
 
@@ -151,6 +152,10 @@ Sección fusionada de "Nosotros" (testimonio del fundador) + "Contacto" (CTA de 
 ---
 
 ## 8. Pendientes / fuera de alcance (explícitamente no resueltos aún)
+
+- Sigla "PyME" ("pequeña y mediana empresa"): choca con la decisión de no llamar "pequeña" a la empresa del cliente. Se conservó por ahora; el dueño no ha decidido.
+- La nota de Sectores dice "Pase el cursor…", también en celular, donde no hay cursor.
+- Revisar el Documento Maestro (C02 Metodología / C03 Portafolio en OneDrive) para alinearlo con el portafolio de productos (sin "niveles" ni "momentos", sin garantía, público abierto).
 
 - Páginas de Privacidad y Términos (footer las omite hasta que existan).
 - Envío de resultado del diagnóstico por email vía Resend — implementado en `api/send-result.js` y `api/notify-lead.js` (ver tareas completadas), pero no es parte de este documento de diseño visual.
